@@ -1,0 +1,39 @@
+﻿@using MVCitemstatus.Models
+@using MVCitemstatus.Helper
+@model IEnumerable<MVCitemstatus.Models.ItemViewModels>
+
+@{
+    ViewBag.Title = "Itemstatus";
+}
+
+<h2>Itemstatus</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            顯示中文
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayItemsStatus(item.Status)
+            </td>
+        </tr>
+    }
+
+</table>
